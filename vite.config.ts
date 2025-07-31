@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 // Example: base: '/gatango-puzzle/'
 export default defineConfig({
   plugins: [react()],
-  base: '/YOUR_REPO_NAME/'
+  base: './'
 })
