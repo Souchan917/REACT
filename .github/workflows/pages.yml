@@ -1,8 +1,7 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
-    branches: [ main ]    # ← ブランチ名が main 以外ならここを合わせる（例: master）
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -25,12 +24,10 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      # SPA直リンク対策：404.html を dist に生成（保険）
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
